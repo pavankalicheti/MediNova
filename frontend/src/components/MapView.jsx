@@ -12,21 +12,21 @@ const defaultIcon = L.icon({
 
 const ambulanceIcon = L.divIcon({
   className: 'custom-ambulance-marker',
-  html: `<div style="background-color: #ef4444; color: white; padding: 6px; border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 3px solid white; box-shadow: 0 0 15px rgba(239,68,68,0.8); animation: pulse 1.5s infinite;">🚑</div>`,
+  html: `<div style="background-color: #2563eb; color: white; padding: 6px; border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 16px; border: 3px solid white; box-shadow: 0 0 15px rgba(37,99,235,0.8); animation: pulse 1.5s infinite;">🚑</div>`,
   iconSize: [34, 34],
   iconAnchor: [17, 17],
 });
 
 const hospitalIcon = L.divIcon({
   className: 'custom-hospital-marker',
-  html: `<div style="background-color: #0d9488; color: white; padding: 6px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 0 10px rgba(13,148,136,0.6);">🏥</div>`,
+  html: `<div style="background-color: #1d4ed8; color: white; padding: 6px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 0 10px rgba(29,78,216,0.6);">🏥</div>`,
   iconSize: [32, 32],
   iconAnchor: [16, 16],
 });
 
 const patientIcon = L.divIcon({
   className: 'custom-patient-marker',
-  html: `<div style="background-color: #f59e0b; color: white; padding: 6px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 0 10px rgba(245,158,11,0.6);">📍</div>`,
+  html: `<div style="background-color: #0284c7; color: white; padding: 6px; border-radius: 50%; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; font-size: 15px; border: 2px solid white; box-shadow: 0 0 10px rgba(2,132,199,0.6);">📍</div>`,
   iconSize: [32, 32],
   iconAnchor: [16, 32],
 });
@@ -61,7 +61,7 @@ export default function MapView({ ambulanceLat, ambulanceLng, patientLat, patien
   const mapCenter = [currentAmbLat, currentAmbLng];
 
   return (
-    <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-slate-800 shadow-xl relative z-0">
+    <div className="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border border-blue-200 shadow-md relative z-0">
       <MapContainer
         center={mapCenter}
         zoom={13}
@@ -99,9 +99,9 @@ export default function MapView({ ambulanceLat, ambulanceLng, patientLat, patien
         <Marker position={[currentAmbLat, currentAmbLng]} icon={ambulanceIcon}>
           <Popup>
             <div className="text-slate-900 font-sans p-1">
-              <strong className="block font-bold text-red-600">Ambulance {vehicleNumber || 'AMB-9021'}</strong>
+              <strong className="block font-bold text-blue-600">Ambulance {vehicleNumber || 'AMB-9021'}</strong>
               <div className="text-xs text-slate-700">Driver: {driverName || 'Robert Taylor'}</div>
-              <div className="text-xs font-semibold text-teal-700 mt-0.5">Status: {status || 'En route'} ({progress}% En route)</div>
+              <div className="text-xs font-semibold text-blue-700 mt-0.5">Status: {status || 'En route'} ({progress}% En route)</div>
             </div>
           </Popup>
         </Marker>
@@ -109,7 +109,7 @@ export default function MapView({ ambulanceLat, ambulanceLng, patientLat, patien
         {/* Simulated Route Polyline */}
         <Polyline
           positions={routePolyline}
-          color="#0d9488"
+          color="#2563eb"
           weight={4}
           opacity={0.7}
           dashArray="8, 8"
@@ -117,16 +117,16 @@ export default function MapView({ ambulanceLat, ambulanceLng, patientLat, patien
       </MapContainer>
 
       {/* Map Control Live Overlay Bar */}
-      <div className="absolute top-3 right-3 z-[400] bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-xl p-3 shadow-lg max-w-xs text-xs">
-        <div className="flex items-center gap-2 font-bold text-white mb-1">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping"></span>
+      <div className="absolute top-3 right-3 z-[400] bg-white/95 backdrop-blur-md border border-blue-200 rounded-xl p-3 shadow-lg max-w-xs text-xs">
+        <div className="flex items-center gap-2 font-bold text-slate-800 mb-1">
+          <span className="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping"></span>
           <span>Live GPS Simulation</span>
         </div>
-        <div className="text-slate-300">Vehicle: <strong className="text-teal-400 font-mono">{vehicleNumber || 'AMB-9021'}</strong></div>
-        <div className="text-slate-400 mt-1">Status: <span className="text-amber-400 font-semibold">{status || 'En route'}</span></div>
+        <div className="text-slate-600">Vehicle: <strong className="text-blue-600 font-mono">{vehicleNumber || 'AMB-9021'}</strong></div>
+        <div className="text-slate-500 mt-1">Status: <span className="text-blue-700 font-semibold">{status || 'En route'}</span></div>
         {/* Progress Bar */}
-        <div className="w-full bg-slate-800 rounded-full h-1.5 mt-2 overflow-hidden">
-          <div className="bg-teal-400 h-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+        <div className="w-full bg-blue-100 rounded-full h-1.5 mt-2 overflow-hidden">
+          <div className="bg-blue-600 h-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
         </div>
       </div>
     </div>

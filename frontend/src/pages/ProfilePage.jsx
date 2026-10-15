@@ -60,68 +60,68 @@ export default function ProfilePage() {
 
   return (
     <div className="max-w-3xl space-y-6">
-      <div className="bg-slate-900 border border-slate-800 p-6 rounded-2xl flex items-center justify-between">
+      <div className="bg-white border border-slate-200 p-6 rounded-2xl flex items-center justify-between shadow-sm">
         <div>
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-400 text-xs font-semibold mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-600 text-xs font-semibold mb-2">
             <User className="w-3.5 h-3.5" />
             <span>Digital Patient Passport (Phase A)</span>
           </div>
-          <h1 className="text-2xl font-bold text-white font-outfit">My Patient Profile</h1>
-          <p className="text-xs text-slate-400 mt-1">
+          <h1 className="text-2xl font-bold text-slate-800 font-outfit">My Patient Profile</h1>
+          <p className="text-xs text-slate-500 mt-1">
             Maintain your personal health declaration, blood group, emergency contacts, and medical history.
           </p>
         </div>
       </div>
 
       {successMsg && (
-        <div className="p-4 rounded-xl bg-teal-500/15 border border-teal-500/30 text-teal-300 text-xs flex items-center gap-2">
-          <CheckCircle2 className="w-4 h-4 text-teal-400" />
+        <div className="p-4 rounded-xl bg-blue-50 border border-blue-200 text-blue-700 text-xs flex items-center gap-2">
+          <CheckCircle2 className="w-4 h-4 text-blue-600" />
           <span>{successMsg}</span>
         </div>
       )}
 
-      <div className="bg-slate-900 border border-slate-800 rounded-2xl p-6 shadow-xl">
+      <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Full Name</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Full Name</label>
               <input
                 type="text"
                 required
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white focus:border-teal-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Contact Phone</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Contact Phone</label>
               <input
                 type="text"
                 required
                 value={form.contact}
                 onChange={(e) => setForm({ ...form, contact: e.target.value })}
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white focus:border-teal-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Age</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Age</label>
               <input
                 type="number"
                 required
                 value={form.age}
                 onChange={(e) => setForm({ ...form, age: e.target.value })}
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white focus:border-teal-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 focus:border-blue-500 focus:outline-none"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300 mb-1">Blood Group</label>
+              <label className="block text-xs font-semibold text-slate-600 mb-1">Blood Group</label>
               <select
                 value={form.bloodGroup}
                 onChange={(e) => setForm({ ...form, bloodGroup: e.target.value })}
-                className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white focus:border-teal-500 focus:outline-none"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 focus:border-blue-500 focus:outline-none"
               >
                 {['A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'].map(bg => (
                   <option key={bg} value={bg}>{bg}</option>
@@ -131,32 +131,32 @@ export default function ProfilePage() {
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1">Emergency Contact Information</label>
+            <label className="block text-xs font-semibold text-slate-600 mb-1">Emergency Contact Information</label>
             <input
               type="text"
               value={form.emergencyContact}
               onChange={(e) => setForm({ ...form, emergencyContact: e.target.value })}
               placeholder="Name, relationship, and emergency phone number..."
-              className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white focus:border-teal-500 focus:outline-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 focus:border-blue-500 focus:outline-none"
             />
           </div>
 
           <div>
-            <label className="block text-xs font-semibold text-slate-300 mb-1">Medical History & Allergies Summary</label>
+            <label className="block text-xs font-semibold text-slate-600 mb-1">Medical History & Allergies Summary</label>
             <textarea
               rows="4"
               value={form.medicalHistory}
               onChange={(e) => setForm({ ...form, medicalHistory: e.target.value })}
               placeholder="Chronological health conditions, surgical history, or drug allergies..."
-              className="w-full bg-slate-800 border border-slate-700 rounded-xl py-2 px-3 text-xs text-white focus:border-teal-500 focus:outline-none"
+              className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2 px-3 text-xs text-slate-800 focus:border-blue-500 focus:outline-none"
             ></textarea>
           </div>
 
-          <div className="pt-3 border-t border-slate-800 flex justify-end">
+          <div className="pt-3 border-t border-slate-200 flex justify-end">
             <button
               type="submit"
               disabled={saving}
-              className="px-6 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 hover:from-teal-600 hover:to-emerald-600 text-white font-semibold text-xs rounded-xl shadow-lg shadow-teal-500/20 transition"
+              className="px-6 py-2.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold text-xs rounded-xl shadow-lg shadow-blue-500/20 transition"
             >
               {saving ? 'Saving...' : 'Save Profile Changes'}
             </button>

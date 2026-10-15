@@ -9,6 +9,7 @@ export const DEMO_USERS = [
   { role: 'Receptionist', email: 'receptionist@medinova.com', password: 'password123', name: 'David Miller', label: 'Receptionist (David)' },
   { role: 'Ambulance Driver', email: 'driver@medinova.com', password: 'password123', name: 'Robert Taylor', label: 'Ambulance Driver (Robert)' },
   { role: 'Blood Bank Admin', email: 'bloodbank@medinova.com', password: 'password123', name: 'Dr. Aris Thorne', label: 'Blood Bank Admin (Dr. Thorne)' },
+  { role: 'Pharmacist', email: 'pharmacist@medinova.com', password: 'password123', name: 'Elena Gilbert, PharmD', label: 'Pharmacist (Elena Gilbert)' },
   { role: 'Admin', email: 'admin@medinova.com', password: 'password123', name: 'Clara Oswald', label: 'System Admin (Clara)' },
 ];
 

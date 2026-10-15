@@ -16,6 +16,24 @@ import TriagePage from './pages/TriagePage';
 import AppointmentsPage from './pages/AppointmentsPage';
 import MedicalRecordsPage from './pages/MedicalRecordsPage';
 import ProfilePage from './pages/ProfilePage';
+import TelemedicinePage from './pages/TelemedicinePage';
+import PharmacyPage from './pages/PharmacyPage';
+import PredictiveAnalyticsPage from './pages/PredictiveAnalyticsPage';
+import IoTVitalsPage from './pages/IoTVitalsPage';
+import EmrExchangePage from './pages/EmrExchangePage';
+import GenomicRiskPage from './pages/GenomicRiskPage';
+import RoboticSurgeryPage from './pages/RoboticSurgeryPage';
+import QuantumTelemetryPage from './pages/QuantumTelemetryPage';
+import DroneDispatchPage from './pages/DroneDispatchPage';
+import MedicalImagingPage from './pages/MedicalImagingPage';
+import VoiceAssistantPage from './pages/VoiceAssistantPage';
+import MultilingualCarePage from './pages/MultilingualCarePage';
+import BedManagementPage from './pages/BedManagementPage';
+import InsuranceClaimsPage from './pages/InsuranceClaimsPage';
+import AdvancedBiotechPage from './pages/AdvancedBiotechPage';
+import BioPrintingPage from './pages/BioPrintingPage';
+import SpaceTelemetryPage from './pages/SpaceTelemetryPage';
+
 
 export default function App() {
   const { user, loading } = useAuth();
@@ -24,9 +42,9 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-slate-950 flex flex-col items-center justify-center text-teal-400">
-        <div className="w-12 h-12 border-4 border-teal-500/20 border-t-teal-500 rounded-full animate-spin mb-4"></div>
-        <p className="text-xs font-mono tracking-widest uppercase">Initializing MediNova System...</p>
+      <div className="min-h-screen bg-slate-50 flex flex-col items-center justify-center text-blue-600">
+        <div className="w-12 h-12 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin mb-4"></div>
+        <p className="text-xs font-mono tracking-widest uppercase text-slate-500">Initializing MediNova System...</p>
       </div>
     );
   }
@@ -51,6 +69,8 @@ export default function App() {
         return <AmbulanceDashboard />;
       case 'Blood Bank Admin':
         return <BloodBankDashboard />;
+      case 'Pharmacist':
+        return <PharmacyPage />;
       case 'Admin':
         return <AdminDashboard />;
       default:
@@ -63,6 +83,40 @@ export default function App() {
     switch (activeTab) {
       case 'dashboard':
         return renderDashboardByRole();
+      case 'telemedicine':
+        return <TelemedicinePage />;
+      case 'pharmacy':
+        return <PharmacyPage />;
+      case 'analytics':
+        return <PredictiveAnalyticsPage />;
+      case 'iot_vitals':
+        return <IoTVitalsPage />;
+      case 'emr_exchange':
+        return <EmrExchangePage />;
+      case 'genomics':
+        return <GenomicRiskPage />;
+      case 'robotic_surgery':
+        return <RoboticSurgeryPage />;
+      case 'quantum_telemetry':
+        return <QuantumTelemetryPage />;
+      case 'drone_dispatch':
+        return <DroneDispatchPage />;
+      case 'imaging_ai':
+        return <MedicalImagingPage />;
+      case 'voice_assistant':
+        return <VoiceAssistantPage />;
+      case 'multilingual':
+        return <MultilingualCarePage />;
+      case 'bed_management':
+        return <BedManagementPage />;
+      case 'insurance':
+        return <InsuranceClaimsPage />;
+      case 'advanced_biotech':
+        return <AdvancedBiotechPage />;
+      case 'bioprinting':
+        return <BioPrintingPage />;
+      case 'space_telemetry':
+        return <SpaceTelemetryPage />;
       case 'triage':
         return <TriagePage />;
       case 'appointments':
@@ -83,7 +137,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-teal-500 selection:text-white">
+    <div className="min-h-screen bg-slate-50 text-slate-800 flex flex-col font-sans selection:bg-blue-500 selection:text-white">
       <Navbar />
 
       <div className="flex-1 flex overflow-hidden">

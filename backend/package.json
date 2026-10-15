@@ -1,6 +1,7 @@
 {
   "name": "medinova-backend",
   "version": "1.0.0",
+  "type": "module",
   "description": "MediNova AI Healthcare Management System - Express Backend",
   "main": "server.js",
   "scripts": {
